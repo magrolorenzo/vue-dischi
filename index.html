@@ -25,12 +25,16 @@
                     </div>
                     <div>
                         <label for="sorting">Sort by Year: </label>
-                        <input type="checkbox" id="sorting" name="sort" value="true">
+                        <select name="sort" id="sorting" v-model="isSort">
+                            <option value="no"> - </option>
+                            <option value="asc">Asc ▲</option>
+                            <option value="desc">Desc ▼</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="cd-wrapper">
-                    <div class="cd-card" v-for="cd in cd_array" v-if="genre_selected == cd.genre || genre_selected == 'All' ">
+                    <div class="cd-card" v-for="cd in sort_cd()" v-if="genre_selected == cd.genre || genre_selected == 'All' ">
                         <div class="image-container">
                             <img :src="cd.poster" :alt="cd.poster" class="poster">
                         </div>
