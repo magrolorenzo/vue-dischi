@@ -14,16 +14,29 @@ var app = new Vue({
     el: "#root",
 
     data:{
-        cd_array: []
+        cd_array: [],
+        genres_array:[],
+        genre_selected: "All"
     },
 
     mounted(){
 
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
         .then((get_obj) =>{
+
             this.cd_array = get_obj.data.response;
-            console.log(get_obj);
+
             console.log(this.cd_array);
+
+            this.cd_array.forEach((cd, i) => {
+                if(this.genres_array.includes(cd.genre)){
+                }else{
+                    this.genres_array.push(cd.genre)
+                }
+            });
+
+            console.log("Array generi: " + this.genres_array);
+
         });
     }
 
