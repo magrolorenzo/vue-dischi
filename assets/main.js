@@ -9,3 +9,22 @@
 // N.B.: per fare questo punto non è necessario modificare l'array dei dati
 
 // BONUS 2: Ordinare i dischi per anno di uscita.
+
+var app = new Vue({
+    el: "#root",
+
+    data:{
+        cd_array: []
+    },
+
+    mounted(){
+
+        axios.get("https://flynn.boolean.careers/exercises/api/array/music")
+        .then((get_obj) =>{
+            this.cd_array = get_obj.data.response;
+            console.log(get_obj);
+            console.log(this.cd_array);
+        });
+    }
+
+});

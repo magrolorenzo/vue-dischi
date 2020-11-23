@@ -15,14 +15,19 @@
         <div id="root">
             <div class="container">
                 <div class="cd-wrapper">
-                    <div class="cd-card">
+                    <div class="cd-card" v-for="cd in cd_array">
                         <div class="image-container">
-                            <img src="" alt="">
+                            <img :src="cd.poster" :alt="cd.poster" class="poster">
                         </div>
                         <div class="title-container">
-                            <span id="title"></span>
+                            <span class="title">{{cd.title}}</span>
                         </div>
-                        
+                        <div class="author-container">
+                            <span class="author">{{cd.author}}</span>
+                        </div>
+                        <div class="year-container">
+                            <span class="year">{{cd.year}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
